@@ -1,11 +1,13 @@
 pipeline {
   agent any
   stages {
+
     stage('Lint HTML') {
       steps {
         sh 'echo "Linting html..."'
         sh 'tidy -q -e *.html'
-    },
+    }
+
     stage('Build') {
       steps {
         sh 'echo "Uploading html file to s3..."'
@@ -15,6 +17,7 @@ pipeline {
 
       }
     }
+
   }
 }
 
